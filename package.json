@@ -1,0 +1,22 @@
+{
+  "name": "fyp21-stel-api",
+  "version": "1.0.0",
+  "description": "Backend API - STEL",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RajaFaizanNazir/FYP21-STEL-API.git"
+  },
+  "keywords": [
+    "STEL"
+  ],
+  "author": "Raja Faizan Nazir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RajaFaizanNazir/FYP21-STEL-API/issues"
+  },
+  "homepage": "https://github.com/RajaFaizanNazir/FYP21-STEL-API#readme"
+}
