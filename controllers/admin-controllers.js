@@ -98,7 +98,7 @@ const signup = async (req, res, next) => {
     );
     return next(error);
   }
-
+  console.log(createdAdmin);
   res.status(201).json({ AdminId: createdAdmin.id, email: createdAdmin.email });
 };
 /**************************************** */
