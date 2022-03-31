@@ -4,7 +4,7 @@ process.env.PORT = 5000;
 const fs = require("fs");
 /**************************************** */
 const express = require("express");
-const bodyParser = require("body-parser"); 
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 /**************************************** */
 const usersRoutes = require("./routes/users-routes");
@@ -30,6 +30,7 @@ app.use("/api/users", usersRoutes);
 app.use("/api/admin", adminRoutes);
 /**************************************** */
 app.use((req, res, next) => {
+  console.log("Could not find this route");
   const error = new HttpError("Could not find this route.", 404);
   throw error;
 });
