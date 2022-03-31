@@ -7,42 +7,14 @@ const credentialsValidator = () => {
   ];
 };
 /**************************************** */
-const taskValidator = () => {
-  return [body("title").exists(), body("description").exists()];
-};
-/**************************************** */
-const positionValidator = () => {
-  return [
-    body("email").exists().isEmail(),
-    body("position").exists().isIn(["PM", "DEV"]),
-  ];
-};
-/**************************************** */
-const requestValidator = () => {
-  return [body("devComments").exists(), body("taskId").exists()];
-};
-/**************************************** */
 const emailValidator = () => {
   return [body("email").exists().isEmail()];
 };
 /**************************************** */
-const taskstateValidator = () => {
-  return [body("UserEmail").exists().isEmail(), body("TaskID").exists()];
-};
-/**************************************** */
-const idValidator = () => {
-  return [body("id").exists()];
-};
-/**************************************** */
 module.exports = {
   credentialsValidator,
-  taskValidator,
-  positionValidator,
-  requestValidator,
   emailValidator,
-  validationResult,
   body,
-  taskstateValidator,
-  idValidator,
+  validationResult,
 };
 /**************************************** */

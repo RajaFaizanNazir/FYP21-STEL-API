@@ -8,8 +8,8 @@ const userSchema = new Schema(
     password: { type: String, required: true, minlength: 6 },
     position: {
       type: String,
-      enum: ["PM", "DEV"],
-      default: "DEV",
+      enum: ["SELF-REGISTERED", "ADMIN-REGISTERED"],
+      default: "SELF-REGISTERED",
     },
   },
   {

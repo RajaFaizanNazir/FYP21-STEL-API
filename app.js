@@ -48,7 +48,7 @@ app.use((error, req, res, next) => {
 });
 /**************************************** */
 mongoose
-  .connect("mongodb://127.0.0.1/spm_gametrain")
+  .connect("mongodb://127.0.0.1/stel_db")
   .then(() => {
     app.listen(process.env.PORT);
   })
