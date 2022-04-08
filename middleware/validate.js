@@ -11,10 +11,15 @@ const emailValidator = () => {
   return [body("email").exists().isEmail()];
 };
 /**************************************** */
+const nameValidator = () => {
+  return [body("name").exists().isString()];
+};
+/**************************************** */
 module.exports = {
   credentialsValidator,
   emailValidator,
   body,
   validationResult,
+  nameValidator,
 };
 /**************************************** */

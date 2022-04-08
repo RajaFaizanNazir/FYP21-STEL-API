@@ -1,5 +1,5 @@
 process.env.TOKEN_SECRET = "blochain_gametrain";
-process.env.PORT = 5000;
+//process.env.PORT = 5000;
 /**************************************** */
 const fs = require("fs");
 /**************************************** */
@@ -49,11 +49,15 @@ app.use((error, req, res, next) => {
 });
 /**************************************** */
 mongoose
-  .connect("mongodb://127.0.0.1/stel_db")
+  .connect(
+    "mongodb+srv://stel:stel-password@stel.ft3gs.mongodb.net/stel?retryWrites=true&w=majority"
+  )
   .then(() => {
-    app.listen(process.env.PORT);
+    app.listen(5000, () => {
+      console.log("Server is up port 5000 ");
+    });
   })
   .catch((err) => {
-    console.log(err);
+    console.log("Error connecting to cloud" + err);
   });
 /**************************************** */

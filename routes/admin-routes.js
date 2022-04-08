@@ -22,9 +22,17 @@ router.post(
   adminController.getAdminByEmail
 );
 /**************************************** */
-router.post("/addUser", validator.credentialsValidator(), usersController.signup);
+router.post(
+  "/addUser",
+  validator.credentialsValidator(),
+  usersController.signup
+);
 /**************************************** */
-router.post("/signup", validator.credentialsValidator(), adminController.signup);
+router.post(
+  "/signup",
+  [validator.nameValidator(), validator.credentialsValidator()],
+  adminController.signup
+);
 /**************************************** */
 router.post("/login", validator.credentialsValidator(), adminController.login);
 /**************************************** */
