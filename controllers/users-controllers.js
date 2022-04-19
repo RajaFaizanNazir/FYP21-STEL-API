@@ -50,7 +50,7 @@ const signup = async (req, res, next) => {
     );
   }
 
-  const { name, email, password, position } = req.body;
+  const { name, email, password, gender } = req.body;
 
   let existingUser;
   try {
@@ -86,7 +86,7 @@ const signup = async (req, res, next) => {
     name,
     email,
     password: hashedPassword,
-    position,
+    gender,
   });
 
   try {
@@ -152,8 +152,8 @@ const login = async (req, res, next) => {
   });
 };
 /**************************************** */
-const updatePosition = async (req, res, next) => {
-  const { email, position } = req.body;
+const approveAccount = async (req, res, next) => {
+  const { email } = req.body;
   let existingUser;
   try {
     existingUser = await User.findOne({ email: email });
@@ -167,7 +167,7 @@ const updatePosition = async (req, res, next) => {
   try {
     existingUser = await User.findOneAndUpdate(
       { email: email },
-      { position: position },
+      { status: 1 },
       {
         new: true,
       }
@@ -215,25 +215,13 @@ const updatePassword = async (req, res, next) => {
       console.error("ERROR UPDATING DOCUMENT:" + err);
     }
   });
-  // try {
-  //   existingUser = await User.findOneAndUpdate(
-  //     { email: email },
-  //     { password: hashedPassword },
-  //     {
-  //       new: true,
-  //     }
-  //   );
-  // } catch (err) {
-  //   const error = new HttpError("Error updading document = " + err, 500);
-  //   return next(error);
-  // }
   res.status(201).json({ email: existingUser.email });
 };
 /**************************************** */
 module.exports = {
   signup,
   login,
-  updatePosition,
+  approveAccount,
   updatePassword,
   getUsers,
   getUsersByEmail,

@@ -15,11 +15,26 @@ const nameValidator = () => {
   return [body("name").exists().isString()];
 };
 /**************************************** */
+const genderValidator = () => {
+  return [body("gender").exists().isString().isIn(["male", "female"])];
+};
+/**************************************** */
+const phoneValidator = () => {
+  return [body("phone").exists().isNumeric()];
+};
+/**************************************** */
+const profilePictureValidator = () => {
+  return [body("profilePicture").exists().isString()];
+};
+/**************************************** */
 module.exports = {
   credentialsValidator,
   emailValidator,
   body,
   validationResult,
   nameValidator,
+  genderValidator,
+  phoneValidator,
+  profilePictureValidator,
 };
 /**************************************** */
