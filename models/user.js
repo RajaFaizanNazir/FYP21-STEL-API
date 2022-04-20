@@ -13,7 +13,7 @@ const userSchema = new Schema(
     secondaryPhone: { type: Number },
     secondaryEmail: { type: String },
     profilePicture: { type: String },
-    status: {
+    verified: {
       type: Boolean,
       enum: [0, 1],
       default: 0,

@@ -10,7 +10,7 @@ const driverSchema = new Schema(
     experience: { type: Number, default: 0 },
     organization: { type: mongoose.Types.ObjectId, ref: "Organization" },
     profilePicture: { type: String },
-    status: {
+    active: {
       type: Boolean,
       enum: [0, 1],
       default: 0,
