@@ -2,13 +2,16 @@ const mongoose = require("mongoose");
 /**************************************** */
 const Schema = mongoose.Schema;
 /**************************************** */
-const adminSchema = new Schema(
+const organizationSchema = new Schema(
   {
     name: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true, minlength: 6 },
-    phone: { type: Number, unique: true },
-    organization: { type: mongoose.Types.ObjectId, ref: "Organization" },
+    phone: { type: Number },
+    transportManagers: [{ type: mongoose.Types.ObjectId, ref: "Admin" }],
+    buses: [{ type: mongoose.Types.ObjectId, ref: "Bus" }],
+    route: [{ type: mongoose.Types.ObjectId, ref: "Route" }],
+    users: [{ type: mongoose.Types.ObjectId, ref: "User" }],
     profilePicture: { type: String },
     // stats: { type: mongoose.Types.ObjectId },
   },
@@ -17,5 +20,5 @@ const adminSchema = new Schema(
   }
 );
 /**************************************** */
-module.exports = mongoose.model("Admin", adminSchema);
+module.exports = mongoose.model("Organization", organizationSchema);
 /**************************************** */

@@ -1,15 +1,20 @@
 const mongoose = require("mongoose");
 /**************************************** */
 const Schema = mongoose.Schema;
-/**************************************** */
-const adminSchema = new Schema(
+const busSchema = new Schema(
   {
     name: { type: String },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true, minlength: 6 },
-    phone: { type: Number, unique: true },
+    phone: { type: Number },
+    identiy: { type: Number, unique: true },
+    license: { type: String, unique: true },
+    experience: { type: Number, default: 0 },
     organization: { type: mongoose.Types.ObjectId, ref: "Organization" },
     profilePicture: { type: String },
+    status: {
+      type: Boolean,
+      enum: [0, 1],
+      default: 0,
+    },
     // stats: { type: mongoose.Types.ObjectId },
   },
   {
@@ -17,5 +22,5 @@ const adminSchema = new Schema(
   }
 );
 /**************************************** */
-module.exports = mongoose.model("Admin", adminSchema);
+module.exports = mongoose.model("Bus", busSchema);
 /**************************************** */
