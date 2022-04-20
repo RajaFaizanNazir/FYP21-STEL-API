@@ -7,7 +7,7 @@ const adminSchema = new Schema(
     name: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true, minlength: 6 },
-    phone: { type: Number, unique: true },
+    phone: { type: Number },
     organization: { type: mongoose.Types.ObjectId, ref: "Organization" },
     profilePicture: { type: String },
     // stats: { type: mongoose.Types.ObjectId },
