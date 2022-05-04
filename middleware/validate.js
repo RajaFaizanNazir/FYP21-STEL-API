@@ -27,6 +27,18 @@ const profilePictureValidator = () => {
   return [body("profilePicture").exists().isString()];
 };
 /**************************************** */
+const cnicValidator = () => {
+  return [body("cnic").exists().isNumeric()];
+};
+/**************************************** */
+const lisenseValidator = () => {
+  return [body("license").exists().isNumeric()];
+};
+/**************************************** */
+const experienceValidator = () => {
+  return [body("experience").exists().isNumeric({ min: 0, max: 50 })];
+};
+/**************************************** */
 module.exports = {
   credentialsValidator,
   emailValidator,
@@ -36,5 +48,8 @@ module.exports = {
   genderValidator,
   phoneValidator,
   profilePictureValidator,
+  cnicValidator,
+  licenseValidator,
+  experienceValidator,
 };
 /**************************************** */
