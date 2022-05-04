@@ -1,5 +1,6 @@
 const HttpError = require("../util/http-error");
 const Admin = require("../models/admin");
+const Driver = require("../models/driver");
 const confidential = require("../middleware/confidential");
 const validator = require("../middleware/validate");
 /**************************************** */
@@ -157,6 +158,57 @@ const login = async (req, res, next) => {
     email: existingAdmin.email,
   });
 };
+/**************************************** */
+const addDriver = async (req, res, next) => {
+  const errors = validator.validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError("Invalid inputs passed, please check your data.", 422)
+    );
+  }
+
+  const { name, phone, cnic, license, experience } = req.body;
+
+  let existingAdmin;
+  try {
+    existingAdmin = await Admin.findOne({ cnic: cnic });
+  } catch (err) {
+    const error = new HttpError(
+      "Signing up failed, please try again later." + err,
+      500
+    );
+    return next(error);
+  }
+
+  if (existingAdmin) {
+    const error = new HttpError(
+      "Driver exists already, please add another driver instead.",
+      422
+    );
+    return next(error);
+  }
+
+  const createdDriver = new Driver({
+    name,
+    phone,
+    cnic,
+    license,
+    experience,
+  });
+
+  try {
+    await createdDriver.save();
+  } catch (err) {
+    const error = new HttpError(
+      "Signing up failed while saving, please try again later" + err,
+      500
+    );
+    return next(error);
+  }
+  console.log(createdDriver);
+  res.status(201).json({ createdDriver });
+};
+
 /**************************************** */
 module.exports = {
   login,

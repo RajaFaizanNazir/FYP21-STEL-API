@@ -5,7 +5,7 @@ const driverSchema = new Schema(
   {
     name: { type: String },
     phone: { type: Number },
-    identiy: { type: Number, unique: true },
+    cnic: { type: Number, unique: true },
     license: { type: String, unique: true },
     experience: { type: Number, default: 0 },
     organization: { type: mongoose.Types.ObjectId, ref: "Organization" },
