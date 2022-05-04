@@ -20,7 +20,7 @@ const genderValidator = () => {
 };
 /**************************************** */
 const phoneValidator = () => {
-  return [body("phone").exists().isNumeric()];
+  return [body("phone").exists()];
 };
 /**************************************** */
 const profilePictureValidator = () => {
@@ -28,11 +28,11 @@ const profilePictureValidator = () => {
 };
 /**************************************** */
 const cnicValidator = () => {
-  return [body("cnic").exists().isNumeric()];
+  return [body("cnic").exists()];
 };
 /**************************************** */
-const lisenseValidator = () => {
-  return [body("license").exists().isNumeric()];
+const licenseValidator = () => {
+  return [body("license").exists()];
 };
 /**************************************** */
 const experienceValidator = () => {
@@ -51,5 +51,6 @@ module.exports = {
   cnicValidator,
   licenseValidator,
   experienceValidator,
+  licenseValidator,
 };
 /**************************************** */

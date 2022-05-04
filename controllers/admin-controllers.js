@@ -169,9 +169,9 @@ const addDriver = async (req, res, next) => {
 
   const { name, phone, cnic, license, experience } = req.body;
 
-  let existingAdmin;
+  let existingDriver;
   try {
-    existingAdmin = await Admin.findOne({ cnic: cnic });
+    existingDriver = await Driver.findOne({ cnic: cnic });
   } catch (err) {
     const error = new HttpError(
       "Signing up failed, please try again later." + err,
@@ -180,7 +180,7 @@ const addDriver = async (req, res, next) => {
     return next(error);
   }
 
-  if (existingAdmin) {
+  if (existingDriver) {
     const error = new HttpError(
       "Driver exists already, please add another driver instead.",
       422
@@ -215,5 +215,6 @@ module.exports = {
   signup,
   getAdmins,
   getAdminByEmail,
+  addDriver,
 };
 /**************************************** */

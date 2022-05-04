@@ -30,7 +30,7 @@ router.post(
     validator.licenseValidator(),
     validator.experienceValidator(),
   ],
-  adminController.login
+  adminController.addDriver
 );
 /**************************************** */
 module.exports = router;
