@@ -9,15 +9,18 @@ const mongoose = require("mongoose");
 /**************************************** */
 const usersRoutes = require("./routes/users-routes");
 const adminRoutes = require("./routes/admin-routes");
+const driverRoutes = require("./routes/driver-routes");
 const HttpError = require("./util/http-error");
 /**************************************** */
 const app = express();
 /**************************************** */
 app.use(bodyParser.json());
 /**************************************** */
-app.use("/api/users", usersRoutes);
+app.use("/api/user", usersRoutes);
 /**************************************** */
 app.use("/api/admin", adminRoutes);
+/**************************************** */
+app.use("/api/driver", driverRoutes);
 /**************************************** */
 app.use((req, res, next) => {
   console.log("Could not find this route");

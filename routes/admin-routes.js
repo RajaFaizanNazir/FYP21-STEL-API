@@ -21,17 +21,5 @@ router.post(
 /**************************************** */
 router.post("/login", validator.credentialsValidator(), adminController.login);
 /**************************************** */
-router.post(
-  "/addDriver",
-  [
-    validator.nameValidator(),
-    validator.phoneValidator(),
-    validator.cnicValidator(),
-    validator.licenseValidator(),
-    validator.experienceValidator(),
-  ],
-  adminController.addDriver
-);
-/**************************************** */
 module.exports = router;
 /**************************************** */
