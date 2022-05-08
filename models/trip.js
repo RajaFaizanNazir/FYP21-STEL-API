@@ -7,10 +7,11 @@ const tripSchema = new Schema(
     startTime: { type: Date },
     bus: { type: mongoose.Types.ObjectId, ref: "Trip" },
     route: { type: mongoose.Types.ObjectId, ref: "User" },
+    driver: { type: mongoose.Types.ObjectId, ref: "Driver" },
     status: {
       type: String,
       enum: ["Started", "Completed", "Canceled", "Pending"],
-      default: 0,
+      default: "Pending",
     },
     // stats: { type: mongoose.Types.ObjectId },
   },
