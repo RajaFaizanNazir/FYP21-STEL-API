@@ -18,6 +18,11 @@ router.post(
   ],
   driverController.addDriver
 );
+router.post(
+  "/deleteDriver",
+  validator.cnicValidator(),
+  driverController.deleteDriver
+);
 /**************************************** */
 module.exports = router;
 /**************************************** */

@@ -2,6 +2,7 @@ const express = require("express");
 /**************************************** */
 const busController = require("../controllers/bus-controllers");
 const validator = require("../middleware/validate");
+const { route } = require("./users-routes");
 /**************************************** */
 const router = express.Router();
 /**************************************** */
@@ -18,6 +19,8 @@ router.post(
   ],
   busController.addBus
 );
+/**************************************** */
+router.post("/deleteBus", validator.cnicValidator(), busController.deleteBus);
 /**************************************** */
 module.exports = router;
 /**************************************** */
