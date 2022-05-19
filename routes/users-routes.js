@@ -7,11 +7,7 @@ const router = express.Router();
 /**************************************** */
 router.get("/getUsers", usersController.getUsers);
 /**************************************** */
-router.post(
-  "/signup",
-  [validator.credentialsValidator(), validator.nameValidator()],
-  usersController.signup
-);
+router.post("/signup", usersController.signup);
 /**************************************** */
 router.post("/login", validator.credentialsValidator(), usersController.login);
 /**************************************** */

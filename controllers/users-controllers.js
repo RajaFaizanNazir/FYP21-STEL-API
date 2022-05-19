@@ -50,7 +50,7 @@ const signup = async (req, res, next) => {
     );
   }
 
-  const { name, email, password, gender } = req.body;
+  const { firstName, lastName, email, password, confirmPassword } = req.body;
 
   let existingUser;
   try {
@@ -83,10 +83,10 @@ const signup = async (req, res, next) => {
   }
 
   const createdUser = new User({
-    name,
+    firstName,
+    lastName,
     email,
     password: hashedPassword,
-    gender,
   });
 
   try {
