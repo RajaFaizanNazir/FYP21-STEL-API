@@ -5,6 +5,8 @@ const validator = require("../middleware/validate");
 /**************************************** */
 const router = express.Router();
 /**************************************** */
+router.get("/getUsers", usersController.getUsers);
+/**************************************** */
 router.post(
   "/signup",
   [validator.credentialsValidator(), validator.nameValidator()],
