@@ -11,6 +11,7 @@ const usersRoutes = require("./routes/users-routes");
 const adminRoutes = require("./routes/admin-routes");
 const driverRoutes = require("./routes/driver-routes");
 const busRoutes = require("./routes/bus-routes");
+const routeRoutes = require("//routes/route-routes");
 const HttpError = require("./util/http-error");
 /**************************************** */
 const app = express();
@@ -24,6 +25,8 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/driver", driverRoutes);
 /**************************************** */
 app.use("/api/bus", busRoutes);
+/**************************************** */
+app.use("api/route", routeRoutes);
 /**************************************** */
 app.use((req, res, next) => {
   console.log("Could not find this route");
@@ -41,7 +44,9 @@ app.use((error, req, res, next) => {
     return next(error);
   }
   res.status(error.code || 500);
-  res.json({ message: error.message || "An unknown error occurred!" });
+  res.json({
+    message: error.message || "An unknown error occurred!"
+  });
 });
 /**************************************** */
 mongoose
