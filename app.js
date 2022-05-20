@@ -26,7 +26,7 @@ app.use("/api/driver", driverRoutes);
 /**************************************** */
 app.use("/api/bus", busRoutes);
 /**************************************** */
-app.use("api/route", routeRoutes);
+app.use("/api/route", routeRoutes);
 /**************************************** */
 app.use((req, res, next) => {
   console.log("Could not find this route");
