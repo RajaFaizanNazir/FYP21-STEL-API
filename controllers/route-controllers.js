@@ -1,11 +1,11 @@
 const HttpError = require("../util/http-error");
-const User = require("../models/user");
+const Route = require("../models/route");
 const validator = require("../middleware/validate");
 /**************************************** */
 const getRoutes = async (req, res, next) => {
   let routes;
   try {
-    routes = await User.find();
+    routes = await Route.find();
   } catch (err) {
     const error = new HttpError(
       "Fetching routes failed, please try again later." + err,
@@ -34,7 +34,7 @@ const addRoute = async (req, res, next) => {
 
   let existingRoute;
   try {
-    existingRoute = await User.findOne({
+    existingRoute = await Route.findOne({
       number: number
     });
   } catch (err) {
@@ -47,7 +47,7 @@ const addRoute = async (req, res, next) => {
 
   if (existingRoute) {
     const error = new HttpError(
-      "User exists already, please login instead.",
+      "Route exists already.",
       422
     );
     return next(error);
