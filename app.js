@@ -11,7 +11,7 @@ const usersRoutes = require("./routes/users-routes");
 const adminRoutes = require("./routes/admin-routes");
 const driverRoutes = require("./routes/driver-routes");
 const busRoutes = require("./routes/bus-routes");
-const routeRoutes = require("//routes/route-routes");
+const routeRoutes = require("./routes/route-routes");
 const HttpError = require("./util/http-error");
 /**************************************** */
 const app = express();
